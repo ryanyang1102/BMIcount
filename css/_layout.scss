@@ -1,0 +1,31 @@
+
+/* -- 0. Overall page setting -- */
+
+body{
+	font-family: $font_type;
+}
+p{
+	text-align: justify;
+	text-indent: 1em;
+}
+
+/* 統一字型大小 h2~h6,p {font-size} */
+
+
+
+.wrap{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+
+.footer{
+	margin: 0 auto;
+	background-color: $main_bg_color;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+
+/* -- 0. Overall page setting END -- */

@@ -1,0 +1,203 @@
+
+/* 1. INDEX.HTML CSS */
+.header{
+    background-color: $sub_bg_color;
+    padding: 60px;
+}
+.headerContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    margin: 0 auto;
+}
+.bmiLogo{
+    h1{
+        a{
+            @include logo_for_searchEngine(117px,117px,"../img/BMICLogo.png")
+        }
+    }
+}
+.dataInput{
+    margin: 20px;
+    label{
+        color: #fff;
+    }
+    input{
+        margin-top: 5px;
+        font-family: $font_type;
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 10px;
+        &:nth-of-type(1){
+            margin-bottom: 10px;
+        }
+    }
+}
+.sendBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 30px 10px;
+    background-color: $main_bg_color;
+    border-radius: 50%;
+    cursor: pointer;
+    .cycleBtnText{
+        @include cycleBtnText(40px)
+    }
+    &:hover,&:focus{
+        box-shadow: 3px 3px 15px 2px $main_bg_color,
+        -3px -3px 15px 2px $main_bg_color,
+        // 疊兩層偏移不同的陰影
+    }
+    &:active{
+        background-color: $main_bg_color_dark;
+        box-shadow: 3px 3px 15px 2px $main_bg_color_dark,
+        -3px -3px 15px 2px $main_bg_color_dark,
+    }
+}
+.resultBtn{
+    display: none;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 30px 10px;
+    border-radius: 50%;
+    border: 5px solid;
+    // 隨bmiType改變class
+    .bmiTypeUnderWeight{
+        border-color: $bmi_color_underWeight;
+        color: $bmi_color_underWeight;
+    }
+    .bmiTypeNormal{
+        border-color: $bmi_type_normal;
+        color: $bmi_type_normal;
+    }
+    .bmiTypeOverWeight{
+        border-color: $bmi_type_overWeight;
+        color: $bmi_type_overWeight;
+    }
+    .bmiTypeMildObesity{
+        border-color: $bmi_type_mildObesity;
+        color: $bmi_type_mildObesity;
+    }
+    .bmiTypeModerateObesity{
+        border-color: $bmi_type_moderateObesity;
+        color: $bmi_type_moderateObesity;
+    }
+    .bmiTypeSevereObesity{
+        border-color: $bmi_type_severeObesity;
+        color: $bmi_type_severeObesity;
+    }
+
+    .cycleBtnText{
+        @include cycleBtnText(40px)
+    }
+    h3{
+        position: absolute;
+        right: -120px;
+        top: 36px;
+    }
+    .loopIcon{
+        position: absolute;
+        right: -5px;
+        bottom: -5px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 5px solid $sub_bg_color;
+        cursor: pointer;
+        &:hover,&:focus{
+            box-shadow: 3px 3px 5px $main_bg_color,
+            -3px -3px 5px $main_bg_color;
+        }
+
+        // 隨bmiType改變class
+        .bmiTypeUnderWeight{
+            background-color: $bmi_color_underWeight;
+        }
+        .bmiTypeNormal{
+            background-color: $bmi_type_normal;
+        }
+        .bmiTypeOverWeight{
+            background-color: $bmi_type_overWeight;
+        }
+        .bmiTypeMildObesity{
+            background-color: $bmi_type_mildObesity;
+        }
+        .bmiTypeModerateObesity{
+            background-color: $bmi_type_moderateObesity;
+        }
+        .bmiTypeSevereObesity{
+            background-color: $bmi_type_severeObesity;
+        }
+    }
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+
+}
+.resultTable{
+    margin: 40px auto;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+
+    .dataText{
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    // .bmiType{
+    //     .bmiTypeUnderWeight{
+    //         border-color: $bmi_color_underWeight;
+    //     }
+    //     .bmiTypeNormal{
+    //         border-color: $bmi_type_normal;
+    //     }
+    //     .bmiTypeOverWeight{
+    //         border-color: $bmi_type_overWeight;
+    //     }
+    //     .bmiTypeMildObesity{
+    //         border-color: $bmi_type_mildObesity;
+    //     }
+    //     .bmiTypeModerateObesity{
+    //         border-color: $bmi_type_moderateObesity;
+    //     }
+    //     .bmiTypeSevereObesity{
+    //         border-color: $bmi_type_severeObesity;
+    //     }
+    // }
+
+}
+
+.totalRecodeNum{
+    text-align: center;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    background-color: $sub_bg_color;
+    li{
+        a{
+            text-decoration: none;
+            display: block;
+            
+        }
+    }
+}
+
+.showNowPage{
+    background-color: $main_bg_color;
+}
+
+/* 1. INDEX.HTML CSS END */

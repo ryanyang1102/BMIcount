@@ -1,0 +1,19 @@
+@mixin logo_for_searchEngine($width,$height,$imgUrl) {
+	width: $width;
+	height: $height;
+	background-image: url($imgUrl);
+	background-repeat: no-repeat;
+	background-position: center;
+	display: block;
+	text-indent: 101%;
+	white-space: nowrap;
+	overflow: hidden;
+	
+}
+
+@mixin cycleBtnText($margin) {
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	margin: $margin 0;
+}

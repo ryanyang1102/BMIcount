@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BMI計算機</title>
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="headerContent">
+                <div class="bmiLogo">
+                    <h1><a href="#">BMI計算機</a></h1>  
+                </div>
+                <div class="dataInput">
+                    <label for="dataInputHeight">身高 CM</label>
+                    <br>
+                    <input type="number" id="dataInputHeight" placeholder="請輸入身高" required>
+                    <br>
+                    <label for="dataInputWeight">體重 KG</label>
+                    <br>
+                    <input type="number" id="dataInputWeight" placeholder="請輸入體重" required>
+                </div>
+                <div class="sendBtn"><span class="cycleBtnText">看結果</span></div>
+                <div class="resultBtn">
+                    <span id="resultCycleBtn" class="cycleBtnText"></span>
+                    <h3 class="resultCycleType"></h3>
+                    <div class="loopIcon" title="點擊可重新輸入資料查詢BMI">
+                        <img src="img/icons_loop.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <table class="resultTable"></table>
+            <p class="totalRecordNum"></p>
+            <ul class="pagination"></ul>
+        </div>
+        <div class="footer">
+            <img src="img/BMICLogo_brown.png" alt="">
+        </div>
+    </div>
+    
+    <script src="js/all.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+@charset "UTF-8";
+/* Overall setting */
+/* 各種類型所代表的顏色 */
+/* 以後類型要改顏色來這邊改就好 不用CSS一個一個改 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CSS reset for RWD */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -- CSS reset END -- */
+/* CSS RESET and RWD RESET */
+/* -- 0. Overall page setting -- */
+body {
+  font-family: 微軟正黑體;
+}
+
+p {
+  text-align: justify;
+  text-indent: 1em;
+}
+
+/* 統一字型大小 h2~h6,p {font-size} */
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer {
+  margin: 0 auto;
+  background-color: #ffd366;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* -- 0. Overall page setting END -- */
+/* 1. INDEX.HTML CSS */
+.header {
+  background-color: #424242;
+  padding: 60px;
+}
+
+.headerContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.bmiLogo h1 a {
+  width: 117px;
+  height: 117px;
+  background-image: url("../img/BMICLogo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dataInput {
+  margin: 20px;
+}
+
+.dataInput label {
+  color: #fff;
+}
+
+.dataInput input {
+  margin-top: 5px;
+  font-family: 微軟正黑體;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.dataInput input:nth-of-type(1) {
+  margin-bottom: 10px;
+}
+
+.sendBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 100px;
+  margin: 30px 10px;
+  background-color: #ffd366;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sendBtn .cycleBtnText {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 40px 0;
+}
+
+.sendBtn:hover, .sendBtn:focus {
+  -webkit-box-shadow: 3px 3px 15px 2px #ffd366, -3px -3px 15px 2px #ffd366;
+          box-shadow: 3px 3px 15px 2px #ffd366, -3px -3px 15px 2px #ffd366;
+}
+
+.sendBtn:active {
+  background-color: #dea821;
+  -webkit-box-shadow: 3px 3px 15px 2px #dea821, -3px -3px 15px 2px #dea821;
+          box-shadow: 3px 3px 15px 2px #dea821, -3px -3px 15px 2px #dea821;
+}
+
+.resultBtn {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 100px;
+  margin: 30px 10px;
+  border-radius: 50%;
+  border: 5px solid;
+}
+
+.resultBtn .bmiTypeUnderWeight {
+  border-color: #86d73f;
+  color: #86d73f;
+}
+
+.resultBtn .bmiTypeNormal {
+  border-color: red;
+  color: red;
+}
+
+.resultBtn .bmiTypeOverWeight {
+  border-color: #ff1200;
+  color: #ff1200;
+}
+
+.resultBtn .bmiTypeMildObesity {
+  border-color: #ff6c03;
+  color: #ff6c03;
+}
+
+.resultBtn .bmiTypeModerateObesity {
+  border-color: #ff982d;
+  color: #ff982d;
+}
+
+.resultBtn .bmiTypeSevereObesity {
+  border-color: #31baf9;
+  color: #31baf9;
+}
+
+.resultBtn .cycleBtnText {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 40px 0;
+}
+
+.resultBtn h3 {
+  position: absolute;
+  right: -120px;
+  top: 36px;
+}
+
+.resultBtn .loopIcon {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 5px solid #424242;
+  cursor: pointer;
+}
+
+.resultBtn .loopIcon:hover, .resultBtn .loopIcon:focus {
+  -webkit-box-shadow: 3px 3px 5px #ffd366, -3px -3px 5px #ffd366;
+          box-shadow: 3px 3px 5px #ffd366, -3px -3px 5px #ffd366;
+}
+
+.resultBtn .loopIcon .bmiTypeUnderWeight {
+  background-color: #86d73f;
+}
+
+.resultBtn .loopIcon .bmiTypeNormal {
+  background-color: red;
+}
+
+.resultBtn .loopIcon .bmiTypeOverWeight {
+  background-color: #ff1200;
+}
+
+.resultBtn .loopIcon .bmiTypeMildObesity {
+  background-color: #ff6c03;
+}
+
+.resultBtn .loopIcon .bmiTypeModerateObesity {
+  background-color: #ff982d;
+}
+
+.resultBtn .loopIcon .bmiTypeSevereObesity {
+  background-color: #31baf9;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f5f5f5;
+}
+
+.resultTable {
+  margin: 40px auto;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.resultTable .dataText {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.totalRecodeNum {
+  text-align: center;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #424242;
+}
+
+.pagination li a {
+  text-decoration: none;
+  display: block;
+}
+
+.showNowPage {
+  background-color: #ffd366;
+}
+
+/* 1. INDEX.HTML CSS END */
+/*# sourceMappingURL=all.css.map */
