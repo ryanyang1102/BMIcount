@@ -10,7 +10,15 @@ p{
 }
 
 /* 統一字型大小 h2~h6,p {font-size} */
-
+h2{	font-size: 30px; }
+h3{	font-size: 24px; }
+h4{ font-size: 20px; }
+h5{	font-size: 18px; }
+h6{	font-size: 16px; }
+p{	font-size: 14px;
+	line-height: 1.5;
+	text-align: justify;
+	text-indent: 2em; }
 
 
 .wrap{

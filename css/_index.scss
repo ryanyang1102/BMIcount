@@ -14,7 +14,8 @@
 .bmiLogo{
     h1{
         a{
-            @include logo_for_searchEngine(117px,117px,"../img/BMICLogo.png")
+            @include logo_for_searchEngine(117px,117px,"../img/BMILogo.png");
+            margin: 20px;
         }
     }
 }
@@ -24,12 +25,19 @@
         color: #fff;
     }
     input{
+        display: block;
         margin-top: 5px;
         font-family: $font_type;
         font-size: 16px;
         padding: 5px;
+        border: 3px solid #fff;
         border-radius: 10px;
+        &:focus{
+            border: 3px solid $main_bg_color;
+            outline: none;
+        }
         &:nth-of-type(1){
+            // 指定第一個input
             margin-bottom: 10px;
         }
     }
@@ -62,40 +70,46 @@
     display: none;
     flex-direction: column;
     position: relative;
-    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 100px;
     margin: 30px 10px;
     border-radius: 50%;
     border: 5px solid;
+    padding-top: 10px;
+    cursor: default;
     // 隨bmiType改變class
-    .bmiTypeUnderWeight{
+    &.bmiTypeUnderWeight{
         border-color: $bmi_color_underWeight;
         color: $bmi_color_underWeight;
     }
-    .bmiTypeNormal{
+    &.bmiTypeNormal{
         border-color: $bmi_type_normal;
         color: $bmi_type_normal;
     }
-    .bmiTypeOverWeight{
+    &.bmiTypeOverWeight{
         border-color: $bmi_type_overWeight;
         color: $bmi_type_overWeight;
     }
-    .bmiTypeMildObesity{
+    &.bmiTypeMildObesity{
         border-color: $bmi_type_mildObesity;
         color: $bmi_type_mildObesity;
     }
-    .bmiTypeModerateObesity{
+    &.bmiTypeModerateObesity{
         border-color: $bmi_type_moderateObesity;
         color: $bmi_type_moderateObesity;
     }
-    .bmiTypeSevereObesity{
+    &.bmiTypeSevereObesity{
         border-color: $bmi_type_severeObesity;
         color: $bmi_type_severeObesity;
     }
 
     .cycleBtnText{
-        @include cycleBtnText(40px)
+        @include cycleBtnText(20px)
+    }
+    .smallText{
+        font-size: 12px;
+        font-weight: normal;
     }
     h3{
         position: absolute;
@@ -109,7 +123,9 @@
         width: 36px;
         height: 36px;
         border-radius: 50%;
+        text-align: center;
         border: 5px solid $sub_bg_color;
+        padding: 4px 0;
         cursor: pointer;
         &:hover,&:focus{
             box-shadow: 3px 3px 5px $main_bg_color,
@@ -117,23 +133,28 @@
         }
 
         // 隨bmiType改變class
-        .bmiTypeUnderWeight{
+        &.bmiTypeUnderWeight{
             background-color: $bmi_color_underWeight;
         }
-        .bmiTypeNormal{
+        &.bmiTypeNormal{
             background-color: $bmi_type_normal;
         }
-        .bmiTypeOverWeight{
+        &.bmiTypeOverWeight{
             background-color: $bmi_type_overWeight;
         }
-        .bmiTypeMildObesity{
+        &.bmiTypeMildObesity{
             background-color: $bmi_type_mildObesity;
         }
-        .bmiTypeModerateObesity{
+        &.bmiTypeModerateObesity{
             background-color: $bmi_type_moderateObesity;
         }
-        .bmiTypeSevereObesity{
+        &.bmiTypeSevereObesity{
             background-color: $bmi_type_severeObesity;
+        }
+        // 增加動畫效果
+        &:hover{
+            animation: spin 1.5s infinite;
+            transition: ease;
         }
     }
 }
@@ -143,61 +164,99 @@
     flex-direction: column;
     align-items: center;
     background-color: #f5f5f5;
-
+    h2{
+        margin-top: 30px;
+    }
 }
 .resultTable{
-    margin: 40px auto;
+    margin: 20px auto 10px auto;
     border-collapse: separate;
     border-spacing: 0 20px;
     font-size: 20px;
     font-weight: bold;
 
+    .smallText{
+        font-size: 14px;
+        margin-right: 5px;
+        font-weight: normal;
+    }
+
     .dataText{
         font-size: 16px;
         font-weight: normal;
     }
-
-    // .bmiType{
-    //     .bmiTypeUnderWeight{
-    //         border-color: $bmi_color_underWeight;
-    //     }
-    //     .bmiTypeNormal{
-    //         border-color: $bmi_type_normal;
-    //     }
-    //     .bmiTypeOverWeight{
-    //         border-color: $bmi_type_overWeight;
-    //     }
-    //     .bmiTypeMildObesity{
-    //         border-color: $bmi_type_mildObesity;
-    //     }
-    //     .bmiTypeModerateObesity{
-    //         border-color: $bmi_type_moderateObesity;
-    //     }
-    //     .bmiTypeSevereObesity{
-    //         border-color: $bmi_type_severeObesity;
-    //     }
-    // }
-
+    tr{
+        background-color: #fff;
+    }
+    td{
+        padding: 20px;
+    }
+    .bmiType{
+        border-left: 8px solid #000;
+        &.bmiTypeUnderWeight{
+            border-color: $bmi_color_underWeight;
+        }
+        &.bmiTypeNormal{
+            border-color: $bmi_type_normal;
+        }
+        &.bmiTypeOverWeight{
+            border-color: $bmi_type_overWeight;
+        }
+        &.bmiTypeMildObesity{
+            border-color: $bmi_type_mildObesity;
+        }
+        &.bmiTypeModerateObesity{
+            border-color: $bmi_type_moderateObesity;
+        }
+        &.bmiTypeSevereObesity{
+            border-color: $bmi_type_severeObesity;
+        }
+    }
+    .pure-button{
+        padding: 5px 10px;
+    }
+}
+.totalRecordNum{
+    margin-bottom: 20px;
+    font-size: 18px;
 }
 
-.totalRecodeNum{
-    text-align: center;
-}
-.pagination{
+.pageShow{
     display: flex;
     justify-content: center;
-    background-color: $sub_bg_color;
+    margin-bottom: 10px;
     li{
         a{
             text-decoration: none;
             display: block;
-            
+            padding: 10px 20px;
         }
     }
 }
 
-.showNowPage{
-    background-color: $main_bg_color;
+.pageActive {
+    background: $main_bg_color;
+}
+.pageOther{
+    @include pageBtnColor(#000)
+}
+.pagePrev,.pageNext{
+    @include pageBtnColor(#790f0c)
+}
+.page1st,.pageLast{
+    @include pageBtnColor(#272727)
 }
 
+/* 讓按鈕活潑 */
+@keyframes spin{
+    0%{   
+        transform: rotate(0);
+    }
+    50%{   
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
 /* 1. INDEX.HTML CSS END */

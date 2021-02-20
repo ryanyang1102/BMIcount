@@ -80,6 +80,33 @@ p {
 }
 
 /* 統一字型大小 h2~h6,p {font-size} */
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: justify;
+  text-indent: 2em;
+}
+
 .wrap {
   max-width: 960px;
   margin: 0 auto;
@@ -121,13 +148,14 @@ p {
 .bmiLogo h1 a {
   width: 117px;
   height: 117px;
-  background-image: url("../img/BMICLogo.png");
+  background-image: url("../img/BMILogo.png");
   background-repeat: no-repeat;
   background-position: center;
   display: block;
   text-indent: 101%;
   white-space: nowrap;
   overflow: hidden;
+  margin: 20px;
 }
 
 .dataInput {
@@ -139,11 +167,18 @@ p {
 }
 
 .dataInput input {
+  display: block;
   margin-top: 5px;
   font-family: 微軟正黑體;
   font-size: 16px;
   padding: 5px;
+  border: 3px solid #fff;
   border-radius: 10px;
+}
+
+.dataInput input:focus {
+  border: 3px solid #ffd366;
+  outline: none;
 }
 
 .dataInput input:nth-of-type(1) {
@@ -172,6 +207,7 @@ p {
   display: block;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
   margin: 40px 0;
 }
 
@@ -193,51 +229,59 @@ p {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100px;
   height: 100px;
   margin: 30px 10px;
   border-radius: 50%;
   border: 5px solid;
+  padding-top: 10px;
+  cursor: default;
 }
 
-.resultBtn .bmiTypeUnderWeight {
-  border-color: #86d73f;
-  color: #86d73f;
+.resultBtn.bmiTypeUnderWeight {
+  border-color: #77b3d7;
+  color: #77b3d7;
 }
 
-.resultBtn .bmiTypeNormal {
-  border-color: red;
-  color: red;
+.resultBtn.bmiTypeNormal {
+  border-color: #7ac74f;
+  color: #7ac74f;
 }
 
-.resultBtn .bmiTypeOverWeight {
-  border-color: #ff1200;
-  color: #ff1200;
+.resultBtn.bmiTypeOverWeight {
+  border-color: #f69a79;
+  color: #f69a79;
 }
 
-.resultBtn .bmiTypeMildObesity {
-  border-color: #ff6c03;
-  color: #ff6c03;
+.resultBtn.bmiTypeMildObesity {
+  border-color: #f26430;
+  color: #f26430;
 }
 
-.resultBtn .bmiTypeModerateObesity {
-  border-color: #ff982d;
-  color: #ff982d;
+.resultBtn.bmiTypeModerateObesity {
+  border-color: #e6480f;
+  color: #e6480f;
 }
 
-.resultBtn .bmiTypeSevereObesity {
-  border-color: #31baf9;
-  color: #31baf9;
+.resultBtn.bmiTypeSevereObesity {
+  border-color: #ad360b;
+  color: #ad360b;
 }
 
 .resultBtn .cycleBtnText {
   display: block;
   font-size: 20px;
   font-weight: bold;
-  margin: 40px 0;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.resultBtn .smallText {
+  font-size: 12px;
+  font-weight: normal;
 }
 
 .resultBtn h3 {
@@ -253,7 +297,9 @@ p {
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  text-align: center;
   border: 5px solid #424242;
+  padding: 4px 0;
   cursor: pointer;
 }
 
@@ -262,28 +308,35 @@ p {
           box-shadow: 3px 3px 5px #ffd366, -3px -3px 5px #ffd366;
 }
 
-.resultBtn .loopIcon .bmiTypeUnderWeight {
-  background-color: #86d73f;
+.resultBtn .loopIcon.bmiTypeUnderWeight {
+  background-color: #77b3d7;
 }
 
-.resultBtn .loopIcon .bmiTypeNormal {
-  background-color: red;
+.resultBtn .loopIcon.bmiTypeNormal {
+  background-color: #7ac74f;
 }
 
-.resultBtn .loopIcon .bmiTypeOverWeight {
-  background-color: #ff1200;
+.resultBtn .loopIcon.bmiTypeOverWeight {
+  background-color: #f69a79;
 }
 
-.resultBtn .loopIcon .bmiTypeMildObesity {
-  background-color: #ff6c03;
+.resultBtn .loopIcon.bmiTypeMildObesity {
+  background-color: #f26430;
 }
 
-.resultBtn .loopIcon .bmiTypeModerateObesity {
-  background-color: #ff982d;
+.resultBtn .loopIcon.bmiTypeModerateObesity {
+  background-color: #e6480f;
 }
 
-.resultBtn .loopIcon .bmiTypeSevereObesity {
-  background-color: #31baf9;
+.resultBtn .loopIcon.bmiTypeSevereObesity {
+  background-color: #ad360b;
+}
+
+.resultBtn .loopIcon:hover {
+  -webkit-animation: spin 1.5s infinite;
+          animation: spin 1.5s infinite;
+  -webkit-transition: ease;
+  transition: ease;
 }
 
 .main {
@@ -300,12 +353,22 @@ p {
   background-color: #f5f5f5;
 }
 
+.main h2 {
+  margin-top: 30px;
+}
+
 .resultTable {
-  margin: 40px auto;
+  margin: 20px auto 10px auto;
   border-collapse: separate;
   border-spacing: 0 20px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.resultTable .smallText {
+  font-size: 14px;
+  margin-right: 5px;
+  font-weight: normal;
 }
 
 .resultTable .dataText {
@@ -313,27 +376,135 @@ p {
   font-weight: normal;
 }
 
-.totalRecodeNum {
-  text-align: center;
+.resultTable tr {
+  background-color: #fff;
 }
 
-.pagination {
+.resultTable td {
+  padding: 20px;
+}
+
+.resultTable .bmiType {
+  border-left: 8px solid #000;
+}
+
+.resultTable .bmiType.bmiTypeUnderWeight {
+  border-color: #77b3d7;
+}
+
+.resultTable .bmiType.bmiTypeNormal {
+  border-color: #7ac74f;
+}
+
+.resultTable .bmiType.bmiTypeOverWeight {
+  border-color: #f69a79;
+}
+
+.resultTable .bmiType.bmiTypeMildObesity {
+  border-color: #f26430;
+}
+
+.resultTable .bmiType.bmiTypeModerateObesity {
+  border-color: #e6480f;
+}
+
+.resultTable .bmiType.bmiTypeSevereObesity {
+  border-color: #ad360b;
+}
+
+.resultTable .pure-button {
+  padding: 5px 10px;
+}
+
+.totalRecordNum {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.pageShow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #424242;
+  margin-bottom: 10px;
 }
 
-.pagination li a {
+.pageShow li a {
   text-decoration: none;
   display: block;
+  padding: 10px 20px;
 }
 
-.showNowPage {
-  background-color: #ffd366;
+.pageActive {
+  background: #ffd366;
+}
+
+.pageOther {
+  background: #f5f5f5;
+  color: #000;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pageOther:hover {
+  background: #ffd366;
+  color: white;
+}
+
+.pagePrev, .pageNext {
+  background: #f5f5f5;
+  color: #790f0c;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pagePrev:hover, .pageNext:hover {
+  background: #ffd366;
+  color: white;
+}
+
+.page1st, .pageLast {
+  background: #f5f5f5;
+  color: #272727;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.page1st:hover, .pageLast:hover {
+  background: #ffd366;
+  color: white;
+}
+
+/* 讓按鈕活潑 */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 /* 1. INDEX.HTML CSS END */
