@@ -5,36 +5,53 @@ const resultBtn = document.querySelector('.resultBtn');
 const resultTable = document.querySelector('.resultTable');
 const loopIcon = document.querySelector('.loopIcon');
 const pageShow = document.querySelector('.pageShow');
+const removeAll = document.querySelector('.removeAll');
 let bmiDataArray = JSON.parse(localStorage.getItem('userData')) || [];
 
 // 宣告 分頁物件資訊
 let pageInfo = '';
     
-sendBtn.addEventListener('click',Count,false); // 監聽 計算函式
+sendBtn.addEventListener('click',dataFilter,false); // 監聽 輸入資料篩選函式
 resultTable.addEventListener('click',deleteData,false); // 監聽 刪除函式
 pageShow.addEventListener('click',switchPage,false); // 監聽 換頁函式
-loopIcon.addEventListener('click',reset,false); // 監聽 清空函式
+loopIcon.addEventListener('click',reset,false); // 監聽 清空輸入值函式
+removeAll.addEventListener("click", deleteList); // 監聽 清空全部資料函式
 pagination(bmiDataArray,1) // 預設分頁第一頁渲染畫面
 
-// 計算函式
-function Count(){
-    // 如果沒輸入值就跳警告視窗，後面不做
-    if ( inputHeight.value === '' ){
-        alert("請輸入身高！");
+// 輸入資料篩選函式
+function dataFilter(){
+    let inputGroup = document.querySelectorAll('.inputGroup');
+    // console.log(inputGroup);
+    // 使用 for...of '遍歷'所要的值
+    for (inputEle of inputGroup) {
+    //   console.log(inputEle);
+    // 判斷input是否為空值，classList顯示或隱藏
+      if (inputEle.querySelector('input').value === ''){
+        inputEle.querySelector('.inputNotice').classList.add('noticeShow');
+        return;
+      } else {
+        inputEle.querySelector('.inputNotice').classList.remove('noticeShow');
+      }
+    };
+    if(inputHeight.value !=='' && inputWeight.value !==''){
+        dataCount();
+    }else{
         return;
     }
-    if ( inputWeight.value === '' ){
-        alert("請輸入體重！");
-        return;
-    }
+};
 
+// 計算函式
+function dataCount(){
     // 看結果按鈕隱藏，顯示結果圓圈
     sendBtn.style.display = "none";
     resultBtn.style.display = "flex";
 
     // 開始處理輸入值 並 計算
-    let userHeight = parseFloat(inputHeight.value);
-    let userWeight = parseFloat(inputWeight.value);
+    let userHeight = parseFloat(inputHeight.value).toFixed(2);
+        // toFixed() 的值又會轉回 string
+    userHeight = parseFloat(userHeight);
+    let userWeight = parseFloat(inputWeight.value).toFixed(2);
+    userWeight = parseFloat(userWeight);
     let bmi = (userWeight / (userHeight / 100) **2).toFixed(2);
     // console.log(bmi)
     // console.log(typeof(bmi))
@@ -69,8 +86,8 @@ function Count(){
             userRecord.class = 'SevereObesity'
         }
       }else{
-        alert("資料錯誤");
-      }
+        alert('資料錯誤');
+      };
 
     //獲得當前日期
     let date = new Date();
@@ -82,7 +99,7 @@ function Count(){
     if(day.length === 1){day = '0'+day}
     if(month.length === 1){month = '0'+month}
     // console.log(year,month,day)
-    userRecord.time = `${year}-${month}-${day}`
+    userRecord.time = `${year}-${month}-${day}`;
 
     addInputData(userRecord);
 }
@@ -110,7 +127,7 @@ function addInputData(data){
         autoClear(i);
     };
 
-    pagination(bmiDataArray,1)
+    pagination(bmiDataArray,1);
 }
 
 
@@ -182,14 +199,14 @@ function randerTable(record){
 
 // 刪除資料按鈕函式
 function deleteData(e){
-    if (e.target.nodeName != 'INPUT'){return;} //從父元素監聽子元素
+    if (e.target.nodeName !== 'INPUT'){return;} //從父元素監聽子元素
     // console.log(e.target.nodeName)
     let deleteNum = e.target.dataset.num; // 鎖定自訂編號的資料
 
     bmiDataArray.splice(deleteNum,1);
     localStorage.setItem('userData', JSON.stringify(bmiDataArray));
 
-    pagination(bmiDataArray,pageInfo.nowPage)
+    pagination(bmiDataArray,pageInfo.nowPage);
 }
 
 // 渲染 分頁按鈕
@@ -201,7 +218,7 @@ function pageBtn(page){
         } else { //否則不顯示
         eleStr += `<li><a data-page="1" style="display: none">第一頁</a></li>
                    <li><a data-page="${Number(page.nowPage) - 1}" style="display: none">prev</a></li>`;
-        } ;
+        };
     
     for (let i = 1; i <= page.pageNumber; i++) {
         if(Number(page.nowPage) === i){
@@ -229,7 +246,7 @@ function switchPage(e) {
     
     const pageNum = e.target.dataset.page; // 由自定義的data-num鎖定頁數
     // console.log(bmiDataArray,pageNum);
-    pagination(bmiDataArray,pageNum)
+    pagination(bmiDataArray,pageNum);
 }
 
 // 清空資料函式
@@ -240,3 +257,13 @@ function reset(){
     sendBtn.style.display = "flex";
     resultBtn.style.display = "none";
 }
+
+ // 刪除全部資料
+ function deleteList(e){
+     e.preventDefault();
+     let deleteNum = bmiDataArray.length; // 陣列數量
+    //  console.log(deleteNum)
+     bmiDataArray.splice(0 ,deleteNum); // 從第0筆開始，刪除deleteNum筆
+     localStorage.setItem("userData", JSON.stringify(bmiDataArray));
+     pagination(bmiDataArray,pageInfo.nowPage);
+ };

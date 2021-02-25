@@ -181,8 +181,14 @@ p {
   outline: none;
 }
 
-.dataInput input:nth-of-type(1) {
-  margin-bottom: 10px;
+.dataInput .inputNotice {
+  color: red;
+  font-size: 16px;
+  visibility: hidden;
+}
+
+.dataInput .inputNotice.noticeShow {
+  visibility: visible;
 }
 
 .sendBtn {
@@ -355,6 +361,27 @@ p {
 
 .main h2 {
   margin-top: 30px;
+  text-align: center;
+}
+
+.main h2 .removeAll {
+  text-decoration: none;
+  margin-left: 20px;
+  display: inline-block;
+  width: 80px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  border: #ca3c3c 2px solid;
+  background: #ca3c3c;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.main h2 .removeAll:hover {
+  color: #ca3c3c;
+  background: #fff;
 }
 
 .resultTable {

@@ -16,13 +16,18 @@
                     <h1><a href="#">BMI計算機</a></h1>  
                 </div>
                 <div class="dataInput">
-                    <label for="dataInputHeight">身高 cm</label>
-                    <br>
-                    <input type="text" id="dataInputHeight" placeholder="請輸入身高" required>
-                    <br>
-                    <label for="dataInputWeight">體重 kg</label>
-                    <br>
-                    <input type="text" id="dataInputWeight" placeholder="請輸入體重" required>
+                    <div class="inputGroup">
+                        <label for="dataInputHeight">身高 cm</label>
+                        <br>
+                        <input type="text" id="dataInputHeight" placeholder="請輸入身高" required>
+                        <p class="inputNotice">請輸入身高</p>
+                    </div>
+                    <div class="inputGroup">
+                        <label for="dataInputWeight">體重 kg</label>
+                        <br>
+                        <input type="text" id="dataInputWeight" placeholder="請輸入體重" required>
+                        <p class="inputNotice">請輸入體重</p>
+                    </div>
                 </div>
                 <div class="sendBtn"><span class="cycleBtnText">看結果</span></div>
                 <div class="resultBtn">
@@ -35,7 +40,9 @@
             </div>
         </div>
         <div class="main">
-            <h2>BMI 紀錄</h2>
+            <h2>BMI 紀錄
+                <a href="#" class="removeAll">刪除全部</a>
+            </h2>
             <table class="resultTable">
             </table>
             <p class="totalRecordNum"></p>
