@@ -152,7 +152,7 @@ function pagination(dataX,nowPage){
     const maxData = nowPage * perPage;  //第2頁 2*4=8
 
     let recordItem = [];
-    dataX.forEach(function (item,index) {
+    dataX.forEach((item,index) => {
         const pageRange = index + 1; // 資料索引從0開始
         if ( pageRange >= minData && pageRange <= maxData) {
             recordItem.push(item);
@@ -181,7 +181,7 @@ function randerTable(record){
     totalRecordNum.textContent = `總筆數：${totalDataNum}`;
 
     let str = '';
-    record.forEach(function(item,index){
+    record.forEach((item,index) => {
         str += `
         <tr>
             <td class='bmiType bmiType${item.class}'>${item.status}</td>
